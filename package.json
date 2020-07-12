@@ -1,7 +1,14 @@
 {
   "name": "gdp-uikit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil Component Starter",
+  "author": {
+    "email": "suarezgl@gmail.com",
+    "name": "Leonardo Suarez"
+  },
+  "repository": {
+    "url": "https://github.com/suarezgl/gdp-uikit"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
