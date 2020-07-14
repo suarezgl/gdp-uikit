@@ -6,6 +6,13 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface APlayButton {
+        "isDisable": boolean;
+        "isLoading": boolean;
+        "play": boolean;
+    }
+    interface MPlaylistBar {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -20,19 +27,50 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface OVideoPlayer {
+    }
 }
 declare global {
+    interface HTMLAPlayButtonElement extends Components.APlayButton, HTMLStencilElement {
+    }
+    var HTMLAPlayButtonElement: {
+        prototype: HTMLAPlayButtonElement;
+        new (): HTMLAPlayButtonElement;
+    };
+    interface HTMLMPlaylistBarElement extends Components.MPlaylistBar, HTMLStencilElement {
+    }
+    var HTMLMPlaylistBarElement: {
+        prototype: HTMLMPlaylistBarElement;
+        new (): HTMLMPlaylistBarElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLOVideoPlayerElement extends Components.OVideoPlayer, HTMLStencilElement {
+    }
+    var HTMLOVideoPlayerElement: {
+        prototype: HTMLOVideoPlayerElement;
+        new (): HTMLOVideoPlayerElement;
+    };
     interface HTMLElementTagNameMap {
+        "a-play-button": HTMLAPlayButtonElement;
+        "m-playlist-bar": HTMLMPlaylistBarElement;
         "my-component": HTMLMyComponentElement;
+        "o-video-player": HTMLOVideoPlayerElement;
     }
 }
 declare namespace LocalJSX {
+    interface APlayButton {
+        "isDisable"?: boolean;
+        "isLoading"?: boolean;
+        "onClicked"?: (event: CustomEvent<any>) => void;
+        "play"?: boolean;
+    }
+    interface MPlaylistBar {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -47,15 +85,23 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface OVideoPlayer {
+    }
     interface IntrinsicElements {
+        "a-play-button": APlayButton;
+        "m-playlist-bar": MPlaylistBar;
         "my-component": MyComponent;
+        "o-video-player": OVideoPlayer;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "a-play-button": LocalJSX.APlayButton & JSXBase.HTMLAttributes<HTMLAPlayButtonElement>;
+            "m-playlist-bar": LocalJSX.MPlaylistBar & JSXBase.HTMLAttributes<HTMLMPlaylistBarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "o-video-player": LocalJSX.OVideoPlayer & JSXBase.HTMLAttributes<HTMLOVideoPlayerElement>;
         }
     }
 }
